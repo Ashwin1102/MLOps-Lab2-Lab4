@@ -10,8 +10,8 @@ VERSION_FILE_NAME = os.getenv('VERSION_FILE_NAME')  # Name of the file where the
 
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_squared_error
 from google.cloud import storage
 import joblib
 from datetime import datetime
@@ -31,7 +31,7 @@ def preprocess_data(X, y):
 
 # Function to train a RandomForest model using the preprocessed training data
 def train_model(X_train, y_train):
-    model = RandomForestClassifier(n_estimators=100, random_state=42)  # Initialize RandomForest with specific parameters
+    model = RandomForestRegressor(n_estimators=100, random_state=42)  # Initialize RandomForest with specific parameters
     model.fit(X_train, y_train)  # Fit the model to the training data
     return model
 
@@ -97,7 +97,7 @@ def main():
     # Train and evaluate the model
     model = train_model(X_train, y_train)
     y_pred = model.predict(X_test)
-    accuracy = accuracy_score(y_test, y_pred)
+    accuracy = mean_squared_error(y_test, y_pred)
     print(f'Model accuracy: {accuracy}')
     
     # Save the model with a new version and timestamp in GCS
