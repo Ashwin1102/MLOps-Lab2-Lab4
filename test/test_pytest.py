@@ -1,6 +1,6 @@
 import pytest
 import pandas as pd
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestRegressor
 from unittest.mock import patch, MagicMock
 from src.train_and_save_model import download_data, preprocess_data, train_model
 from src.train_and_save_model import get_model_version, update_model_version
@@ -54,7 +54,7 @@ def test_train_model():
     model = train_model(X, y)
     
     # Assertions to verify the model is trained correctly
-    assert isinstance(model, RandomForestClassifier)  # Check if the returned model is of the correct type
+    assert isinstance(model, RandomForestRegressor)  # Check if the returned model is of the correct type
     assert hasattr(model, 'predict')                  # Ensure the model has a predict method
 
 # ----------------- Test Model versioning ----------------- #
@@ -175,7 +175,7 @@ def test_ensure_folder_exists():
 # This function tests the 'save_model_to_gcs' function to ensure it correctly saves a model to Google Cloud Storage.
 def test_save_model_to_gcs():
     # Create a mock RandomForestClassifier model for testing purposes. This represents the model that you want to save.
-    model = RandomForestClassifier()
+    model = RandomForestRegressor()
     
     # 'patch' is used to temporarily replace the 'google.cloud.storage.Client' class with a mock, so that no real network operations are performed.
     with patch('google.cloud.storage.Client') as mock_storage_client:
