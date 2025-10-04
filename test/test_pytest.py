@@ -35,13 +35,20 @@ def test_preprocess_data():
 # Test the train_model function to ensure it correctly trains the model
 def test_train_model():
     # Generate sample data for testing
+    
     X = pd.DataFrame({
-        'sepal length (cm)': [5.1, 4.9, 4.7, 4.6, 5.0],
-        'sepal width (cm)': [3.5, 3.0, 3.2, 3.1, 3.6],
-        'petal length (cm)': [1.4, 1.4, 1.3, 1.5, 1.4],
-        'petal width (cm)': [0.2, 0.2, 0.2, 0.2, 0.2],
+        'age':  [-0.05, 0.06, 0.04, 0.02, -0.03],
+        'sex':  [0.05, -0.04, 0.03, -0.02, 0.01],
+        'bmi':  [0.03, 0.04, 0.05, 0.02, 0.06],
+        'bp':   [0.02, 0.01, -0.01, 0.03, 0.00],
+        's1':   [-0.02, 0.00, 0.03, 0.02, -0.01],
+        's2':   [0.01, -0.02, 0.00, 0.02, 0.03],
+        's3':   [-0.03, 0.02, 0.01, -0.01, 0.00],
+        's4':   [0.02, 0.03, 0.01, 0.00, 0.02],
+        's5':   [0.05, 0.06, 0.04, 0.03, 0.05],
+        's6':   [0.00, 0.01, -0.02, 0.02, 0.03],
     })
-    y = pd.Series([0, 0, 0, 0, 0])
+    y = pd.Series([150.0, 175.2, 120.8, 200.5, 135.3])
     
     # Train the model using the sample data
     model = train_model(X, y)
