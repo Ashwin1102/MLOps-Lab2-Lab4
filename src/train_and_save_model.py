@@ -18,10 +18,10 @@ from datetime import datetime
 
 # Function to download the Iris dataset from the sklearn library
 def download_data():
-    from sklearn.datasets import load_iris
-    iris = load_iris()  # Load the Iris dataset
-    features = pd.DataFrame(iris.data, columns=iris.feature_names)  # Convert the iris data to a DataFrame
-    target = pd.Series(iris.target)  # Convert the iris target to a Series
+    from sklearn.datasets import load_diabetes
+    diabetes = load_diabetes() # Load the Diabetes dataset
+    features = pd.DataFrame(diabetes.data, columns=diabetes.feature_names)  # Convert the diabetes data to a DataFrame
+    target = pd.Series(diabetes.target)  # Convert the diabetes target to a Series
     return features, target
 
 # Function to preprocess the downloaded data by splitting it into training and testing sets
