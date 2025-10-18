@@ -97,9 +97,9 @@ If you haven't already, install the [Google Cloud SDK](https://cloud.google.com/
  After running this script locally, there should be a `trained_models` and `model_version.txt` in your GCS bucket. If you run it one more time, the new model would be uploaded and also the model version increments by one.
  
 This is a simple model script which we have also used in the previous beginner lab. This script includes following fucntions which will form our machine learning pipeline:
-- Download the Iris dataset
+- Download the diabetes dataset
 - Preprocess the data
-- Train a Random Forest model
+- Train a Random Forest Regressor model
 - Evaluate the model's accuracy
 - Save the model to your local machine and to Google Cloud Storage
 - Update the model version in GCS
