@@ -1,5 +1,5 @@
 # CI/CD with GitHub Actions and GCP - Intermediate Lab
-
+###### I have updated the data and model in this project as the CI/CD architecture stays the same.
 This repository is a hands-on lab designed to teach you how to set up a CI/CD pipeline for a machine learning project using GitHub Actions and Google Cloud Platform (GCP). You'll learn how to train a model, version it, and deploy it using Docker containers on GCP.
 
 ---
